@@ -1,0 +1,34 @@
+<?php
+/**
+ * app-skeleton-3:/html/testcase/form/confirm.phtml
+ *
+ * @creation  2017-08-23
+ * @version   1.0
+ * @package   app-skeleton
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+/* @var $form Form */
+?>
+<article>
+	<h1>Confirmation</h1>
+	<div role="table">
+		<?php foreach(['text','textarea','select','radio','checkbox','agree'] as $name): ?>
+		<div role="tr">
+			<div role="th"><?= $form->Label($name) ?></div>
+			<div role="td"><?= $form->Value($name) ?></div>
+		</div>
+		<?php endforeach; ?>
+		<div role="tr">
+			<div role="th"></div>
+			<div role="td">
+				<form name="" action="./" method="post">
+					<button> Back form page </button>
+				</form>
+				<?= $form->Start('conversion') ?>
+					<button> I did confirmation this value </button>
+				<?= $form->Finish() ?>
+			</div>
+		</div>
+	</div>
+</article>
