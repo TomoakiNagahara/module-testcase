@@ -1,6 +1,6 @@
 <?php
 /**
- * app-skeleton-3:/html/testcase/database/quick.php
+ * module-testcase:/database/quick.php
  *
  * @creation  2017-08-29
  * @version   1.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * app-skeleton-3:/html/testcase/database/index.php
+ * module-testcase:/database/index.php
  *
  * @creation  2017-08-22
  * @version   1.0
@@ -16,7 +16,6 @@ if( $db = Unit::Factory('db') ){
 		return;
 	}
 	if(!$db->Connect($config)){
-		D( $db->GetQueries() );
 		return;
 	}
 }else{

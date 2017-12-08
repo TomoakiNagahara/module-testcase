@@ -1,6 +1,6 @@
 <?php
 /**
- * app-skeleton-3:/html/testcase/database/app.php
+ * module-testcase:/database/app.php
  *
  * @creation  2017-08-22
  * @version   1.0

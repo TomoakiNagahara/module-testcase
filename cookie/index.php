@@ -1,6 +1,6 @@
 <?php
 /**
- * app-skeleton-3:/html/testcase/cookie/index.php
+ * module-testcase:/cookie/index.php
  *
  * @creation  2017-08-23
  * @version   1.0
@@ -11,9 +11,11 @@
 //	...
 D(__FILE__);
 
-$count = Cookie::Get('count');
-$count += 1;
-Cookie::Set('count', $count);
-
+$count = Cookie::Get('count', 0);
 D($count);
+
+$count += 1;
+D($count);
+
+Cookie::Set('count', $count);
 D($_COOKIE);

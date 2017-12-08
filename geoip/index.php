@@ -1,6 +1,6 @@
 <?php
 /**
- * app-skeleton-3:/html/testcase/geoip/index.php
+ * module-testcase:/geoip/index.php
  *
  * @creation  2017-09-06
  * @version   1.0

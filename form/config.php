@@ -1,6 +1,6 @@
 <?php
 /**
- * app-skeleton-3:/html/testcase/form/config.php
+ * module-testcase:/form/config.php
  *
  * @creation  2017-08-23
  * @version   1.0
