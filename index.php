@@ -9,13 +9,6 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 //	...
-D(__FILE__);
-
-<<<<<<< Updated upstream
-//	...
 if( Env::isAdmin() ){
 	phpinfo();
 }
-=======
-phpinfo();
->>>>>>> Stashed changes

@@ -9,4 +9,10 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 //	...
-Notice::Set("This is notice test.\nNext line.");
+Notice::Set("This is notice test.\nSub message.");
+
+//	...
+Notice::Set("This is 2nd Notice message.");
+
+//	...
+Notice::Set("This is 3rd Notice message.");
