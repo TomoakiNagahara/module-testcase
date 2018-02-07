@@ -1,0 +1,46 @@
+<?php
+/**
+ * module-testcase:/unit/selftest/index.phtml
+*
+* @creation  2017-12-14
+* @version   1.0
+* @package   module-testcase
+* @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+* @copyright Tomoaki Nagahara All right reserved.
+*/
+//	...
+$build  = \OP\UNIT\SELFTEST\Inspector::Build();
+$failed = \OP\UNIT\SELFTEST\Inspector::Failed();
+$result = \OP\UNIT\SELFTEST\Inspector::Result();
+
+//	...
+if( $failed === true ){
+	$color   = 'red';
+	$message = 'Self test was failed.';
+}else if( $failed === false ){
+	$color   = 'blue';
+	$message = 'Self test was completed.';
+}else{
+	$color   = '';
+	$message = 'Please entre admin user name and password.';
+}
+
+//	...
+if( $build ){
+	$message= $failed ? 'Build was failed.':'Build was completed.';
+}
+
+?>
+<section>
+	<h1>This is self test page</h1>
+	<p class="<?= $color ?>"><?= $message ?></p>
+	<?php
+	while( $message = \OP\UNIT\SELFTEST\Inspector::Error() ){
+		Html::E($message);
+	}
+	?>
+	<?php if( $failed !== false ){ \OP\UNIT\SELFTEST\Inspector::Form(); } ?>
+</section>
+<?php
+D($build, $failed, $result);
+\OP\UNIT\SELFTEST\Inspector::Debug();
