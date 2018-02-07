@@ -1,0 +1,44 @@
+<?php
+/**
+ * module-testcase:/unit/validate/index.phtml
+ *
+ * @creation  2018-01-26
+ * @version   1.0
+ * @package   module-testcase
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+/* @var $form Form */
+//	...
+?>
+<?= $form->Start() ?>
+<table>
+	<?php foreach( ['required'] as $key ): ?>
+	<tr>
+		<th>
+			<?= $form->Label($key) ?>
+		</th>
+		<td>
+			<?= $form->Input($key) ?>
+		</td>
+		<td>
+			<?php
+			foreach( $errors[$key] as $val => $err ){
+				echo $err ? 'Error':'';
+			}
+			?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+	<tr>
+		<th></th>
+		<td>
+			<button> Submit </button>
+		</td>
+	</tr>
+</table>
+<?= $form->Finish() ?>
+<hr/>
+<?php
+//	...
+d( $errors );
