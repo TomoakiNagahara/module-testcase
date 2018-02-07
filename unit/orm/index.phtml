@@ -1,0 +1,51 @@
+<?php
+/**
+ * module-testcase:/unit/orm/index.phtml
+ *
+ * @creation  2018-02-03
+ * @version   1.0
+ * @package   module-testcase
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+/* @var $record OP\UNIT\ORM\Record */
+$form = $record->Form();
+?>
+<div class="success">
+	<?php if( $save ): ?>
+		<p>Record was saved.</p>
+	<?php endif; ?>
+</div>
+<div class="error">
+	<?php if(!$found = $record->isFound() ): ?>
+		<p>Record was not found.</p>
+	<?php endif; ?>
+	<?php if( $found and $form->Token() === false ): ?>
+		<p>Token has expired.</p>
+	<?php endif; ?>
+</div>
+<?php $form->Start() ?>
+<table>
+	<?php foreach( ['ai','id','tag','number','text'] as $name ): ?>
+	<tr>
+		<th>
+			<?php $form->Label($name) ?>
+		</th>
+		<td>
+			<?php $form->Input($name) ?>
+		</td>
+		<td>
+			<?php D($form->GetError($name)) ?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+	<tr>
+		<th>
+
+		</th>
+		<td>
+			<input type="submit" value=" Submit "/>
+		</td>
+	</tr>
+</table>
+<?php $form->Finish() ?>
