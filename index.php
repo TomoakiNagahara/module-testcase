@@ -9,6 +9,14 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 //	...
+include('common.php');
+?>
+<!-- menu -->
+<?php include('menu.phtml') ?>
+
+<!-- phpinfo -->
+<?php
+//	...
 if( Env::isAdmin() ){
 	phpinfo();
 }
