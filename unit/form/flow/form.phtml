@@ -1,0 +1,47 @@
+<?php
+/**
+ * module-testcase:/unit/form/flow/form.phtml
+ *
+ * @creation  2018-01-23
+ * @version   1.0
+ * @package   module-testcase
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+/* @var $form OP\UNIT\Form */
+
+//	...
+$messages = (function (string $file){
+	return include($file);
+})(__DIR__.'/config-error.php');
+
+?>
+<?= $form->Start(['action'=>'confirm']) ?>
+<table>
+	<?php foreach( ['nickname','japanese','kana','hiragana','katakana','uniqueid','mailaddr','message','age','gender','agree','submit'] as $key ): ?>
+	<tr>
+		<th>
+			<?= $form->Label($key) ?>
+		</th>
+		<td>
+			<?= $form->Input($key) ?>
+		</td>
+		<td class="error">
+			<?php
+			foreach( ifset($errors[$key], []) as $validate => $result ){
+				if( $result ){
+					$result = is_bool($result) ? null: (is_array($result) ? null: " ($result)");
+					$message = ifset($messages[$key][$validate], $messages['default'][$validate]);
+					Html::P( $message . $result );
+				}
+			}
+			?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+<?= $form->Finish() ?>
+<hr/>
+<?php
+//	...
+D($errors);

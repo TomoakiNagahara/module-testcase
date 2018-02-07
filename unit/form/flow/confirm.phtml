@@ -1,0 +1,54 @@
+<?php
+/**
+ * module-testcase:/unit/form/flow/confirm.phtml
+ *
+ * @creation  2018-01-24
+ * @version   1.0
+ * @package   module-testcase
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+/* @var $form OP\UNIT\Form */
+?>
+<p>confirm.phtml</p>
+<?= $form->Start() ?>
+<table>
+	<?php foreach( ['nickname','japanese','kana','hiragana','katakana','uniqueid','mailaddr','message','age','gender','agree'] as $key ): ?>
+	<tr>
+		<th>
+			<?= $form->Label($key) ?>
+		</th>
+		<td>
+			<?php
+			$view = $form->View($key);
+			echo is_array($view) ? join(', ', $view): $view;
+			?>
+		</td>
+		<td class="error">
+			<?php
+			foreach( ifset($errors[$key], []) as $key => $error ){
+				if( $error ){
+					D($key, $error);
+				}
+			}
+			?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+<?= $form->Finish() ?>
+<div>
+	<!-- Back to forward page -->
+	<button onclick="location.href='form'">
+		Back to forward page
+	</button>
+
+	<!-- Go to next page -->
+	<button onclick="location.href='commit'" <?= $form->Session('confirm') ? '':'disabled="disabled"' ?>>
+		Go to commitment page
+	</button>
+</div>
+<hr/>
+<?php
+//	...
+D($errors);

@@ -1,0 +1,59 @@
+<?php
+/**
+ * module-testcase:/unit/form/index.phtml
+ *
+ * @creation  2018-01-12
+ * @version   1.0
+ * @package   module-testcase
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+/* @var $form Form */
+//	...
+$count  = (int)$form->Session('count');
+$count += 1;
+$form->Session('count', $count);
+
+//	Get verified token result.
+if( $form->Token() ){
+	//	Session do discard.
+	if( $form->Value('session') ){
+		$form->Clear();
+	}
+}
+?>
+<div>
+	<a href="./flow/">Workflow</a>
+</div>
+<p>Count: <?= $count ?></p>
+<p class="<?= $form->Token() ? 'blue':'red' ?>">Token is <?= $form->Token() ? 'Fine':'Bad' ?></p>
+<?= $form->Start() ?>
+<table>
+	<?php foreach( ['text','textarea','checkbox','radio','select','multiple','file','button','submit','cookie','session'] as $key ): ?>
+	<tr>
+		<th>
+			<?= $form->Label($key) ?>
+		</th>
+		<td>
+			<?= $form->Input($key) ?>
+		</td>
+		<td>
+			<?php if( $value = $form->View($key) ): ?>
+				<div style="border: 1px solid #ccc;">
+					<?= is_array($value) ? join(', ', $value): $value ?>
+				</div>
+			<?php endif; ?>
+			<?php if( $value = $form->Value($key) or is_string($value) ): ?>
+				<div class="gray">
+					<?= is_array($value) ? join(', ', $value): $value ?>
+				</div>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>
+<?= $form->Finish() ?>
+<?php
+//	...
+D('Request', $_REQUEST);
+D('Session', $_SESSION);
