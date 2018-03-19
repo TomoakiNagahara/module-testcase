@@ -23,6 +23,18 @@ $query = $SQL->Count($select, $DB);
 $count = $DB->Query($query, 'count');
 D($query, "count=$count");
 
+//	SELECT CURRENT MAX AI
+$select = [];
+$select['table'] = $table;
+$select['column'] = 'max(ai)';
+$select['where']['ai']['value'] = 1;
+$select['where']['ai']['evalu'] = '>=';
+$select['limit'] = 1;
+$query  = $SQL->Select($select, $DB);
+$result = $DB->Query($query, 'select');
+$ai_max = $result['MAX(`AI`)'];
+D($query, $result, $ai_max);
+
 //	SELECT SINGLE RECORD
 $select = [];
 $select['table'] = $table;
