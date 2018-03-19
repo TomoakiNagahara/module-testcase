@@ -50,7 +50,7 @@ $select['table'] = $table;
 $select['limit'] = 2;
 $select['offset']= 1;
 $select['where']['ai']['value'] = 1;
-$select['where']['ai']['evalu'] = '>=';
+$select['where']['ai']['evalu'] = '>';
 $query  = $SQL->Select($select, $DB);
 $record = $DB->Query($query);
 D($query, $record);
