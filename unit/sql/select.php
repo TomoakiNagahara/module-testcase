@@ -39,7 +39,7 @@ D($query, $result, $ai_max);
 $select = [];
 $select['table'] = $table;
 $select['limit'] = 1;
-$select['where']['ai'] = 1;
+$select['where']['ai'] = $ai_max;
 $query  = $SQL->Select($select, $DB);
 $record = $DB->Query($query);
 D($query, $record);
