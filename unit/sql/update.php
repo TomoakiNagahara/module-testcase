@@ -10,9 +10,12 @@
  */
 /* @var $DB DB */
 
+//	table name
+$table = 't_table';
+
 //	UPDATE
 $update = [];
-$update['table'] = 't_test';
+$update['table'] = $table;
 $update['limit'] = 1;
 $update['set']['text']    = 'updated';
 $update['set']['updated'] = Time::Datetime();

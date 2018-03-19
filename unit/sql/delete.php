@@ -10,9 +10,12 @@
  */
 /* @var $DB DB */
 
+//	table name
+$table = 't_table';
+
 //	COUNT
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $delete['limit'] = 1;
 $select['where']['ai']['value'] = null;
 $select['where']['ai']['evalu'] = '!=';
@@ -20,7 +23,7 @@ $before = $DB->Query( $SQL->Count($select, $DB), 'count' );
 
 //	DELETE
 $delete = [];
-$delete['table'] = 't_test';
+$delete['table'] = $table;
 $delete['limit'] = 1;
 $delete['where']['updated']['value'] = null;
 $delete['where']['updated']['evalu'] = '!=';
@@ -29,7 +32,7 @@ $result = $DB->Query($query);
 
 //	COUNT
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $delete['limit'] = 1;
 $select['where']['ai']['value'] = null;
 $select['where']['ai']['evalu'] = '!=';

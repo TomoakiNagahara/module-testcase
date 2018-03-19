@@ -11,9 +11,12 @@
 /* @var $DB  \OP\UNIT\DB  */
 /* @var $SQL \OP\UNIT\SQL */
 
+//	table name
+$table = 't_table';
+
 //	SELECT SINGLE RECORD
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 1;
 $select['where']['ai'] = 1;
 $query  = $SQL->Select($select, $DB);
@@ -22,7 +25,7 @@ D($query, $record);
 
 //	SELECT MULTI RECORD
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 2;
 $select['offset']= 1;
 $select['where']['ai']['value'] = 1;
@@ -33,7 +36,7 @@ D($query, $record);
 
 //	SELECT NULL RECORD
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 1;
 $select['where']['updated'] = null;
 $query  = $SQL->Select($select, $DB);
@@ -42,7 +45,7 @@ D($query, $record);
 
 //	SELECT NOT NULL RECORD
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 1;
 $select['where']['updated']['value'] = null;
 $select['where']['updated']['evalu'] = '!=';
@@ -52,7 +55,7 @@ D($query, $record);
 
 //	SELECT BETWEEN
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 2;
 $select['where']['ai']['value'] = '1 TO 1000';
 $select['where']['ai']['evalu'] = 'between';
@@ -62,7 +65,7 @@ D($query, $record);
 
 //	SELECT IN
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 2;
 $select['where']['tag']['value'] = 'test, foo, bar';
 $select['where']['tag']['evalu'] = 'in';
@@ -72,7 +75,7 @@ D($query, $record);
 
 //	SELECT IN
 $select = [];
-$select['table'] = 't_test';
+$select['table'] = $table;
 $select['limit'] = 2;
 $select['where']['tag']['value'] = 'test, foo, bar';
 $select['where']['tag']['evalu'] = 'not in';
