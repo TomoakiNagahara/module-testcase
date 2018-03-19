@@ -8,6 +8,8 @@
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
+/* @var $DB  \OP\UNIT\DB  */
+/* @var $SQL \OP\UNIT\SQL */
 
 //	SELECT SINGLE RECORD
 $select = [];
