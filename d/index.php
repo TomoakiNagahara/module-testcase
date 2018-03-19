@@ -24,14 +24,17 @@ $temp['string'][] = 'This is test string.';
 $temp['string'][] = 'null';
 $temp['string'][] = 'true';
 $temp['string'][] = 'false';
+$temp['string'][] = 'WHITE SPACE';
+$temp['string'][] = ' ';
 $temp['string'][] = '0';
 $temp['string'][] = '0 ';
 $temp['string'][] = ' 0';
 $temp['string'][] = ' 0 ';
-$temp['string'][] = 'SPACE ';
 $temp['string'][] = "CR\r";
 $temp['string'][] = "LF\n";
 $temp['string'][] = "TAB\t";
+$temp['string'][] = '';		// Empty string
+$temp['string'][] = '<script>alert("XSS");</script>';	// XSS
 $temp['array'] = ['apple','kiwi','orange',['banana','pineapple']];
 $temp['assoc']['foo'] = ['bar',['hoge'=>'hoge']];
 
