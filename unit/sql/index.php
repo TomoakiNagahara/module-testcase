@@ -40,5 +40,8 @@ foreach( ['insert','select','update','delete'] as $key ){
 	}
 
 	//	...
+	echo "<a href=\"?target={$key}\">{$key}</a><br/>";
+
+	//	...
 	include("{$key}.php");
 }
